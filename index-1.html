@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Handwritten Digit Recognition</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&family=Poppins:wght@600&family=Lora:wght@600&family=Pacifico&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/b3aed9cb07.js" crossorigin="anonymous"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- TensorFlow.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+  
+</head>
+
+<body onload="init()">
+
+  <!-- Theme Toggle Button -->
+  <div class="theme-toggle">
+    <button id="theme-toggle-btn" class="btn" onclick="toggleTheme()">
+      <i id="theme-icon" class="fas fa-moon"></i>
+    </button>
+  </div>
+
+  <!-- Welcome Section -->
+  <header class="welcome">
+    <h1>Welcome to the Future of Handwritten Digit Recognition!</h1>
+  </header>
+
+  <!-- Title Section -->
+  <section id="title" class="text-center py-5">
+    <h2 class="heading">Handwritten Digit Recognition Web App</h2>
+    <p>
+      This app allows you to draw a digit on the canvas, and it will instantly recognize it using a deep learning model. The app uses a Convolutional Neural Network (CNN) trained on the MNIST dataset for highly accurate predictions.
+    </p>
+  </section>
+
+  <!-- Tutorial Section -->
+  <section id="tutorial" class="py-5">
+    <div class="container">
+      <h2 class="heading text-center">How to Use the Handwritten Digit Recognition App</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="step">
+            <h4>Step 1: Draw a Digit</h4>
+            <p>Click and draw any digit from 0 to 9 on the canvas. The app will detect your drawing in real time.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="step">
+            <h4>Step 2: Click "Predict"</h4>
+            <p>Once you've finished drawing the digit, click on the <strong>"Predict"</strong> button to get the prediction.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="step">
+            <h4>Step 3: View the Prediction</h4>
+            <p>After a few seconds, the app will display the predicted digit and the confidence level of the prediction.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section id="content" class="d-flex justify-content-center align-items-center flex-column py-4">
+    <div id="sketchpadapp" class="row w-75">
+      <div class="col-md-6 text-center">
+        <canvas id="sketchpad" height="300" width="300"></canvas>
+        <div class="buttons_div">
+          <button type="button" class="btn" id="predict_button">Predict</button>
+          <button type="button" class="btn" id="clear_button">Clear</button>
+        </div>
+      </div>
+      <div class="predicted_answer col-md-6 text-center">
+        <h2 id="prediction_heading">Prediction</h2>
+        <h1 id="result">-</h1>
+        <p id="confidence">Confidence: -</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="text-center py-3">
+    <a href="https://www.linkedin.com/in/dinesh-x/" target="_blank" class="social-media-icon mx-3">
+      <i class="fab fa-linkedin fa-2x"></i>
+    </a>
+    <a href="https://github.com/itzdineshx" target="_blank" class="social-media-icon mx-3">
+      <i class="fab fa-github fa-2x"></i>
+    </a>
+  </footer>
+
+  <!-- Custom Script -->
+  <script src="js/main.js"></script>
+
+  <!-- Dark/Light Mode Toggle Script -->
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.getElementById("theme-icon");
+
+      // Toggle between dark and light mode
+      body.classList.toggle("dark-mode");
+
+      // Change icon based on mode
+      if (body.classList.contains("dark-mode")) {
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+      } else {
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
+      }
+    }
+  </script>
+
+</body>
+</html>

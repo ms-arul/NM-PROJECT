@@ -1,0 +1,11 @@
+# TensorFlow for model training
+tensorflow==2.9.1
+
+# NumPy for numerical operations
+numpy==1.22.4
+
+# Pillow for image processing 
+Pillow==9.1.1
+
+# Optional: Matplotlib for plotting 
+matplotlib==3.5.2
